@@ -4,22 +4,6 @@
   <div>Title: </div>
   
   
-<br><br><h2>Enter Flight Info</h2>
-<form id="flight" method="POST"
-  action="/flights/<%= flight._id %>">
-  <label>Airport</label>
-  <textarea name="content"></textarea>
-  <label>Airline:</label>
-  <select name="rating">
-    <option value="Delta">Delta</option>
-    <option value="United">United</option>
-    <option value="Southwest">Southwest</option>
-    <option value="American">American</option>
-    <option value="" selected>pick one</option>
-  </select>
-  <input type="submit" value="Add Flight">
-</form>
-
 
 
 <%- include('../partials/footer') %>

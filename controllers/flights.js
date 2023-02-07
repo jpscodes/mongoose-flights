@@ -3,7 +3,7 @@ const Flight = require('../models/flight');
 module.exports = {
     index,
     show,
-    // new: newMovie,
+    new: newFlight,
     create
 };
 
@@ -19,23 +19,14 @@ function show(req, res) {
       });
 };
 
-// function newMovie(req, res) {
-//     res.render('flights/new');
-// };
+function newFlight(req, res) {
+    res.render('flights/new', { title: 'Add Flight'});
+};
 
 function create(req, res) {
-    // Convert nowShowing's checkbox of nothing or "on" to boolean
-    req.body.nowShowing = !!req.body.nowShowing;
-    // Remove leading/trailing spaces
-    req.body.cast = req.body.cast.trim();
-    // Split if it's not an empty string
-    if (req.body.cast) req.body.cast = req.body.cast.split(/\s*,\s*/);
-    // Delete empty properties on req.body for defaults to happen 
-    for (let key in req.body) {
-      if (req.body[key] === '') delete req.body[key];
-    }
-    const flight = new Flight(req.body);
-    flight.save(function(err) {
+  console.log('create', req.body)
+  const flight = new Flight(req.body);
+  flight.save(function(err) {
       if (err) return res.redirect('/flights/new');
       console.log(flight);
       res.redirect('/flights');

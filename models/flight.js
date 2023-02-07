@@ -9,7 +9,7 @@ const flightSchema = new Schema({
     },
     airport: {
         type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN', 'SEA', 'PDX'],
+        enum: ['AUS', 'DFW', 'DEN'],
         default: 'DEN'
     },
     flightNo: {
@@ -19,7 +19,7 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: new Date().toLocaleDateString()  //Date.now() + 365*24*60*60000
+        default: new Date(Date.now() + 365*24*60*60000)
     }
 }, {timestamps: true});
 
