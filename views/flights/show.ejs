@@ -1,25 +1,22 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <table id="list-details">
+<table id="list-details">
     <thead>
-      <tr>
+    <tr>
         <th>Airline</th>
         <th>Airport</th>
         <th>Flight Number</th>
         <th>Departure Date</th>
-        <th>Destination?</th>
-      </tr>
+    </tr>
     </thead>
     <tbody>
-      <tr>
+    <tr>
         <td><%= flight.airline %></td>
         <td><%= flight.airport %></td>
         <td><%= flight.flightNo %></td>
-        <td><%= flight.departs %></td>
-        <td><%= flight.destinations.airport %></td>
-        <td><%= flight.destinations.arrival %></td>
-      </tr>
+        <td><%= flight.departs %></td>          
+    </tr>
     </tbody>
 </table>
 
@@ -33,7 +30,13 @@
       <option value="SAN">SAN</option>
       <option value="SEA">SEA</option>
     </select>
-    <input name="arrives" type="date" id="datePicker">
+    <input name="arrival" type="date" id="datePicker">
     <input type="submit" value="Add Destination">
-  </form>
+</form>
+
+<% flight.destinations.forEach(function(d) { %>
+<%= d.airport %>
+<%= d.arrival %>
+<% })  %>
+
 <%- include('../partials/footer') %>
