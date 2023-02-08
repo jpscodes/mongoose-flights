@@ -8,6 +8,7 @@
         <th>Airport</th>
         <th>Flight Number</th>
         <th>Departure Date</th>
+        <th>Destination?</th>
       </tr>
     </thead>
     <tbody>
@@ -16,9 +17,23 @@
         <td><%= flight.airport %></td>
         <td><%= flight.flightNo %></td>
         <td><%= flight.departs %></td>
+        <td><%= flight.destinations.airport %></td>
+        <td><%= flight.destinations.arrival %></td>
       </tr>
     </tbody>
 </table>
 
-
+<form id="add-destination" action="/flights/<%= flight._id %>/destinations" method="POST">
+    <label>Airport</label>
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN" selected>DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+      <option value="SEA">SEA</option>
+    </select>
+    <input name="arrives" type="date" id="datePicker">
+    <input type="submit" value="Add Destination">
+  </form>
 <%- include('../partials/footer') %>
