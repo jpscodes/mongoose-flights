@@ -16,6 +16,7 @@ function createTicket(req, res) {
     console.log(req.body.seat)
     console.log(req.body.price)
     console.log(ticket)
+    console.log(Flight)
     res.redirect(`/flights/${req.params.id}`)
     });
 };

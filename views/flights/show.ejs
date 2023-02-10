@@ -52,7 +52,7 @@
 </table>
 </form>
 
-<form id="add-ticket" action="/flights/<%= flight._id %>/tickets" method="POST">
+<!-- <form id="add-ticket" action="/flights/<%= flight._id %>/tickets" method="POST">
     <label>Ticket</label>
     <select name="seat">
         <option value="A1">A1</option>
@@ -64,6 +64,19 @@
     </select>
     <input name="price" type="number" value="Add ticket">
     <input type="submit" value="Add ticket">
+</form> -->
+
+<form>
+    <table id="ticket-details">
+        <tbody>   
+        <tr>
+            <% tickets.forEach(function(t) { %>
+           
+            </td><h4><%= t.seat %> - <%= t.price %></h4></td>
+            <% })  %> 
+        </tr>
+        </tbody>
+    </table>
 </form>
 
 <div><a href="/flights/<%= flight._id %>/tickets/new"><button >Add Ticket Information</button></a></div>
