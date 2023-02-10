@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+<h4> </h4>  
 <section id="show-page">
 <table id="list-details">
     <thead>
@@ -15,10 +16,12 @@
         <td><%= flight.airline %></td>
         <td><%= flight.airport %></td>
         <td><%= flight.flightNo %></td>
-        <td><%= flight.departs %></td>          
+        <td><%= flight.departs %></td>        
     </tr>
     </tbody>
 </table>
+
+<h4> </h4>  
 
 <form id="add-destination" action="/flights/<%= flight._id %>/destinations" method="POST">
     <label>Airport</label>
@@ -34,9 +37,35 @@
     <input type="submit" value="Add Destination">
 </form>
 
-<% flight.destinations.forEach(function(d) { %>
-<%= d.airport %>
-<%= d.arrival %>
-<% })  %>
+<h2>Arriving At - Arrival Time</h2>
+<form action="">
+<table id="list-details">
+    <tbody>   
+    <tr>
+        
+        <% flight.destinations.forEach(function(d) { %>
+        
+        </td><h4><%= d.airport %> - <%= d.arrival %></h4></td>
+        <% })  %> 
+    </tr>
+    </tbody>
+</table>
+</form>
+
+<form id="add-ticket" action="/flights/<%= flight._id %>/tickets" method="POST">
+    <label>Ticket</label>
+    <select name="seat">
+        <option value="A1">A1</option>
+        <option value="A2">A2</option>
+        <option value="A3">A3</option>
+        <option value="A4">A4</option>
+        <option value="A5">A5</option>
+        <option value="A6">A6</option>
+    </select>
+    <input name="price" type="number" value="Add ticket">
+    <input type="submit" value="Add ticket">
+</form>
+
+<div><a href="/flights/<%= flight._id %>/tickets/new"><button >Add Ticket Information</button></a></div>
 
 <%- include('../partials/footer') %>

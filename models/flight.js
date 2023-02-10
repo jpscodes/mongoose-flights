@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const ticket = require('./ticket');
 
 const Schema = mongoose.Schema; 
 
@@ -31,9 +32,13 @@ const flightSchema = new Schema({
         type: Date,
         default: new Date(Date.now() + 365*24*60*60000)
     },
-    destinations: [destinationSchema]
+    destinations: [destinationSchema],
+    ticket: {
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket',
+    },
 }, {timestamps: true});
 
 
 
-module.exports = mongoose.model('flight', flightSchema);
+module.exports = mongoose.model('Flight', flightSchema);
